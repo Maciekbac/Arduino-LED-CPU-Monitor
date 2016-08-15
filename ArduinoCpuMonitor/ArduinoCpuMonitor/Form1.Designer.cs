@@ -38,6 +38,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bRefreshCom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,11 +110,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CPU usage";
             // 
+            // bRefreshCom
+            // 
+            this.bRefreshCom.Location = new System.Drawing.Point(191, 10);
+            this.bRefreshCom.Name = "bRefreshCom";
+            this.bRefreshCom.Size = new System.Drawing.Size(75, 23);
+            this.bRefreshCom.TabIndex = 6;
+            this.bRefreshCom.Text = "Refresh";
+            this.bRefreshCom.UseVisualStyleBackColor = true;
+            this.bRefreshCom.Click += new System.EventHandler(this.bRefreshCom_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 176);
+            this.Controls.Add(this.bRefreshCom);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bDisconnect);
             this.Controls.Add(this.bConnect);
@@ -140,6 +152,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button bRefreshCom;
     }
 }
 

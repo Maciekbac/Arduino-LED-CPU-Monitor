@@ -71,5 +71,11 @@ namespace ArduinoCpuMonitor
             progressBar.Value = cpuUsage; 
             port.WriteLine(cpuUsage.ToString());
         }
+
+        private void bRefreshCom_Click(object sender, EventArgs e)
+        {
+            String[] portsList = SerialPort.GetPortNames();
+            cPorts.DataSource = portsList;
+        }
     }
 }
