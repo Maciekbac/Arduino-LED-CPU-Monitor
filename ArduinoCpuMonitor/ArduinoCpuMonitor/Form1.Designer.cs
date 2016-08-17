@@ -62,8 +62,8 @@
             // 
             // notifyIcon
             // 
-            this.notifyIcon.BalloonTipText = "Double click to reopen";
-            this.notifyIcon.BalloonTipTitle = "Minimized to tray";
+            this.notifyIcon.BalloonTipText = "Minimized to tray";
+            this.notifyIcon.BalloonTipTitle = "Arduino CPU Monitor";
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Arduino CPU Monitor";
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);

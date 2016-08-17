@@ -14,31 +14,25 @@ namespace ArduinoCpuMonitor
         PerformanceCounter CPUCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
 
         public Form1()
-        {
-            
+        {           
             InitializeComponent();
             String[] portsList = SerialPort.GetPortNames();
-            cPorts.DataSource = portsList;                
+            cPorts.DataSource = portsList;
+
+            initTrayMenu();  
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (FormWindowState.Minimized == this.WindowState)
             {
-                notifyIcon.Visible = true;
-                notifyIcon.ShowBalloonTip(3000);
-                this.Hide();
-            }
-            else if (FormWindowState.Normal == this.WindowState)
-            {
-                notifyIcon.Visible = false;
+                hideApp();
             }
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
+            showApp(null,null);
         }
 
         private void bConnect_Click(object sender, EventArgs e)
@@ -76,6 +70,33 @@ namespace ArduinoCpuMonitor
         {
             String[] portsList = SerialPort.GetPortNames();
             cPorts.DataSource = portsList;
+        }
+
+        private void initTrayMenu()
+        {
+            ContextMenu trayMenu = new ContextMenu();
+            trayMenu.MenuItems.Add("Show", showApp);
+            trayMenu.MenuItems.Add("Close", exitApp);
+            notifyIcon.ContextMenu = trayMenu;
+        }
+
+        private void showApp(object sender, EventArgs e)
+        {
+            this.Show();
+            notifyIcon.Visible = false;
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void hideApp()
+        {
+            notifyIcon.Visible = true;
+            notifyIcon.ShowBalloonTip(3000);
+            this.Hide();
+        }
+
+        private void exitApp(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
